@@ -38,8 +38,12 @@ import           GHC.Arr
 import           GHC.Base
 import           GHC.Enum
 import           GHC.Int.Compat
-import           GHC.Integer (smallInteger, integerToInt)
+#if MIN_VERSION_base(4,15,0)
 import           GHC.Num hiding (integerToInt)
+import           GHC.Integer (smallInteger, integerToInt)
+#else
+import           GHC.Num
+#endif
 import           GHC.Ptr
 import           GHC.Read
 import           GHC.Real

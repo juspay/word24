@@ -42,7 +42,12 @@ import           Foreign.Storable
 import           GHC.Arr
 import           GHC.Base
 import           GHC.Enum
+#if MIN_VERSION_base(4,15,0)
 import           GHC.Num hiding (integerToWord)
+import           GHC.Integer (smallInteger, integerToWord)
+#else
+import           GHC.Num
+#endif
 import           GHC.Ptr
 import           GHC.Read
 import           GHC.Real
